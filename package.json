@@ -1,0 +1,19 @@
+{
+  "name": "cozy-task-village",
+  "private": true,
+  "version": "0.2.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c magenta,cyan \"npm run dev -w @cozy/server\" \"npm run dev -w @cozy/web\"",
+    "build": "npm run build -w @cozy/web",
+    "start": "npm run start -w @cozy/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "db:generate": "npm run db:generate -w @cozy/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}
